@@ -1,0 +1,6 @@
+{
+    "name": "Identity und Access Management",
+    "abbreviation":"IAM",
+    "type":"Major",
+    "description": "Im Teil I werden die technischen Bausteine eines IAM-Systems, inkl. Standards und Protokolle, erarbeitet. Im Teil II werden typische Anwendungsgebiete und Prozesse besprochen. Es werden Besonderheiten von Cloud-Thematiken, operational Technology-Szenarien und dem Umgang mit Alt-Systemen vorgestellt. "
+}

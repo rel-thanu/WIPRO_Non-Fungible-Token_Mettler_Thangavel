@@ -1,0 +1,5017 @@
+[
+    {
+        "id": "b018721cb4446a56",
+        "type": "tab",
+        "label": "NFT Mint Process",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f8f234612d9ad36c",
+        "type": "tab",
+        "label": "NFT Use Case",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b40f6c26a336a306",
+        "type": "tab",
+        "label": "ERC-721 Function Calls",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "32f4dda2c398bdd3",
+        "type": "tab",
+        "label": "ERC-721 Events",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7f0797ac.d3a188",
+        "type": "ethereum-client",
+        "name": "Local Ganache",
+        "url": "ws://127.0.0.1:7545"
+    },
+    {
+        "id": "105ec7d2a328a2f6",
+        "type": "sender-account",
+        "name": "Account 1 (Contract Owner)",
+        "ethereumClient": "7f0797ac.d3a188",
+        "address": "0x520528DC344442b79223b4927Db1314af84f68c3",
+        "managedByEthereumClient": true,
+        "transactionQueueSize": "100"
+    },
+    {
+        "id": "b4c8a7de7f10183b",
+        "type": "sender-account",
+        "name": "Account 2",
+        "ethereumClient": "7f0797ac.d3a188",
+        "address": "0x151BFbed168a404cCF951B5413b420b22eC90f98",
+        "managedByEthereumClient": true,
+        "transactionQueueSize": "100"
+    },
+    {
+        "id": "344348712eadfa87",
+        "type": "sender-account",
+        "name": "Account 3",
+        "ethereumClient": "7f0797ac.d3a188",
+        "address": "0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0",
+        "managedByEthereumClient": true,
+        "transactionQueueSize": "100"
+    },
+    {
+        "id": "2e708a4aa8404c47",
+        "type": "smart-contract",
+        "name": "Module",
+        "ethereumClient": "7f0797ac.d3a188",
+        "address": "0x7dbEFa9EC8E12dF8B6637E741F9d408b55ddaA96",
+        "abi": "[     {       \"inputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"constructor\"     },     {       \"anonymous\": false,       \"inputs\": [         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"owner\",           \"type\": \"address\"         },         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"approved\",           \"type\": \"address\"         },         {           \"indexed\": true,           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"Approval\",       \"type\": \"event\"     },     {       \"anonymous\": false,       \"inputs\": [         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"owner\",           \"type\": \"address\"         },         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"operator\",           \"type\": \"address\"         },         {           \"indexed\": false,           \"internalType\": \"bool\",           \"name\": \"approved\",           \"type\": \"bool\"         }       ],       \"name\": \"ApprovalForAll\",       \"type\": \"event\"     },     {       \"anonymous\": false,       \"inputs\": [         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"previousOwner\",           \"type\": \"address\"         },         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"newOwner\",           \"type\": \"address\"         }       ],       \"name\": \"OwnershipTransferred\",       \"type\": \"event\"     },     {       \"anonymous\": false,       \"inputs\": [         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"from\",           \"type\": \"address\"         },         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"to\",           \"type\": \"address\"         },         {           \"indexed\": true,           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"Transfer\",       \"type\": \"event\"     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"to\",           \"type\": \"address\"         },         {           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"approve\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"owner\",           \"type\": \"address\"         }       ],       \"name\": \"balanceOf\",       \"outputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"\",           \"type\": \"uint256\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"getApproved\",       \"outputs\": [         {           \"internalType\": \"address\",           \"name\": \"\",           \"type\": \"address\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"owner\",           \"type\": \"address\"         },         {           \"internalType\": \"address\",           \"name\": \"operator\",           \"type\": \"address\"         }       ],       \"name\": \"isApprovedForAll\",       \"outputs\": [         {           \"internalType\": \"bool\",           \"name\": \"\",           \"type\": \"bool\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [],       \"name\": \"name\",       \"outputs\": [         {           \"internalType\": \"string\",           \"name\": \"\",           \"type\": \"string\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [],       \"name\": \"owner\",       \"outputs\": [         {           \"internalType\": \"address\",           \"name\": \"\",           \"type\": \"address\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"ownerOf\",       \"outputs\": [         {           \"internalType\": \"address\",           \"name\": \"\",           \"type\": \"address\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [],       \"name\": \"renounceOwnership\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"from\",           \"type\": \"address\"         },         {           \"internalType\": \"address\",           \"name\": \"to\",           \"type\": \"address\"         },         {           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"safeTransferFrom\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"from\",           \"type\": \"address\"         },         {           \"internalType\": \"address\",           \"name\": \"to\",           \"type\": \"address\"         },         {           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         },         {           \"internalType\": \"bytes\",           \"name\": \"_data\",           \"type\": \"bytes\"         }       ],       \"name\": \"safeTransferFrom\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"operator\",           \"type\": \"address\"         },         {           \"internalType\": \"bool\",           \"name\": \"approved\",           \"type\": \"bool\"         }       ],       \"name\": \"setApprovalForAll\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [],       \"name\": \"symbol\",       \"outputs\": [         {           \"internalType\": \"string\",           \"name\": \"\",           \"type\": \"string\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"index\",           \"type\": \"uint256\"         }       ],       \"name\": \"tokenByIndex\",       \"outputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"\",           \"type\": \"uint256\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"owner\",           \"type\": \"address\"         },         {           \"internalType\": \"uint256\",           \"name\": \"index\",           \"type\": \"uint256\"         }       ],       \"name\": \"tokenOfOwnerByIndex\",       \"outputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"\",           \"type\": \"uint256\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [],       \"name\": \"totalSupply\",       \"outputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"\",           \"type\": \"uint256\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"from\",           \"type\": \"address\"         },         {           \"internalType\": \"address\",           \"name\": \"to\",           \"type\": \"address\"         },         {           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"transferFrom\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"newOwner\",           \"type\": \"address\"         }       ],       \"name\": \"transferOwnership\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"to\",           \"type\": \"address\"         },         {           \"internalType\": \"string\",           \"name\": \"uri\",           \"type\": \"string\"         }       ],       \"name\": \"safeMint\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"tokenURI\",       \"outputs\": [         {           \"internalType\": \"string\",           \"name\": \"\",           \"type\": \"string\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [         {           \"internalType\": \"bytes4\",           \"name\": \"interfaceId\",           \"type\": \"bytes4\"         }       ],       \"name\": \"supportsInterface\",       \"outputs\": [         {           \"internalType\": \"bool\",           \"name\": \"\",           \"type\": \"bool\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     }   ]"
+    },
+    {
+        "id": "3065fb7c2045d54e",
+        "type": "smart-contract",
+        "name": "Test Token",
+        "ethereumClient": "7f0797ac.d3a188",
+        "address": "0x2fd2a9c4c2338b0796482eeD95e67ac8777EDCf2",
+        "abi": "[     {       \"inputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"constructor\"     },     {       \"anonymous\": false,       \"inputs\": [         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"owner\",           \"type\": \"address\"         },         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"approved\",           \"type\": \"address\"         },         {           \"indexed\": true,           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"Approval\",       \"type\": \"event\"     },     {       \"anonymous\": false,       \"inputs\": [         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"owner\",           \"type\": \"address\"         },         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"operator\",           \"type\": \"address\"         },         {           \"indexed\": false,           \"internalType\": \"bool\",           \"name\": \"approved\",           \"type\": \"bool\"         }       ],       \"name\": \"ApprovalForAll\",       \"type\": \"event\"     },     {       \"anonymous\": false,       \"inputs\": [         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"previousOwner\",           \"type\": \"address\"         },         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"newOwner\",           \"type\": \"address\"         }       ],       \"name\": \"OwnershipTransferred\",       \"type\": \"event\"     },     {       \"anonymous\": false,       \"inputs\": [         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"from\",           \"type\": \"address\"         },         {           \"indexed\": true,           \"internalType\": \"address\",           \"name\": \"to\",           \"type\": \"address\"         },         {           \"indexed\": true,           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"Transfer\",       \"type\": \"event\"     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"to\",           \"type\": \"address\"         },         {           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"approve\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"owner\",           \"type\": \"address\"         }       ],       \"name\": \"balanceOf\",       \"outputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"\",           \"type\": \"uint256\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"getApproved\",       \"outputs\": [         {           \"internalType\": \"address\",           \"name\": \"\",           \"type\": \"address\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"owner\",           \"type\": \"address\"         },         {           \"internalType\": \"address\",           \"name\": \"operator\",           \"type\": \"address\"         }       ],       \"name\": \"isApprovedForAll\",       \"outputs\": [         {           \"internalType\": \"bool\",           \"name\": \"\",           \"type\": \"bool\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [],       \"name\": \"name\",       \"outputs\": [         {           \"internalType\": \"string\",           \"name\": \"\",           \"type\": \"string\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [],       \"name\": \"owner\",       \"outputs\": [         {           \"internalType\": \"address\",           \"name\": \"\",           \"type\": \"address\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"ownerOf\",       \"outputs\": [         {           \"internalType\": \"address\",           \"name\": \"\",           \"type\": \"address\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [],       \"name\": \"renounceOwnership\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"from\",           \"type\": \"address\"         },         {           \"internalType\": \"address\",           \"name\": \"to\",           \"type\": \"address\"         },         {           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"safeTransferFrom\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"from\",           \"type\": \"address\"         },         {           \"internalType\": \"address\",           \"name\": \"to\",           \"type\": \"address\"         },         {           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         },         {           \"internalType\": \"bytes\",           \"name\": \"_data\",           \"type\": \"bytes\"         }       ],       \"name\": \"safeTransferFrom\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"operator\",           \"type\": \"address\"         },         {           \"internalType\": \"bool\",           \"name\": \"approved\",           \"type\": \"bool\"         }       ],       \"name\": \"setApprovalForAll\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [],       \"name\": \"symbol\",       \"outputs\": [         {           \"internalType\": \"string\",           \"name\": \"\",           \"type\": \"string\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"index\",           \"type\": \"uint256\"         }       ],       \"name\": \"tokenByIndex\",       \"outputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"\",           \"type\": \"uint256\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"owner\",           \"type\": \"address\"         },         {           \"internalType\": \"uint256\",           \"name\": \"index\",           \"type\": \"uint256\"         }       ],       \"name\": \"tokenOfOwnerByIndex\",       \"outputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"\",           \"type\": \"uint256\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [],       \"name\": \"totalSupply\",       \"outputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"\",           \"type\": \"uint256\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"from\",           \"type\": \"address\"         },         {           \"internalType\": \"address\",           \"name\": \"to\",           \"type\": \"address\"         },         {           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"transferFrom\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"newOwner\",           \"type\": \"address\"         }       ],       \"name\": \"transferOwnership\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [         {           \"internalType\": \"address\",           \"name\": \"to\",           \"type\": \"address\"         },         {           \"internalType\": \"string\",           \"name\": \"uri\",           \"type\": \"string\"         }       ],       \"name\": \"safeMint\",       \"outputs\": [],       \"stateMutability\": \"nonpayable\",       \"type\": \"function\"     },     {       \"inputs\": [         {           \"internalType\": \"uint256\",           \"name\": \"tokenId\",           \"type\": \"uint256\"         }       ],       \"name\": \"tokenURI\",       \"outputs\": [         {           \"internalType\": \"string\",           \"name\": \"\",           \"type\": \"string\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     },     {       \"inputs\": [         {           \"internalType\": \"bytes4\",           \"name\": \"interfaceId\",           \"type\": \"bytes4\"         }       ],       \"name\": \"supportsInterface\",       \"outputs\": [         {           \"internalType\": \"bool\",           \"name\": \"\",           \"type\": \"bool\"         }       ],       \"stateMutability\": \"view\",       \"type\": \"function\",       \"constant\": true     }   ]"
+    },
+    {
+        "id": "b52ecec1c1ae45ba",
+        "type": "comment",
+        "z": "b018721cb4446a56",
+        "name": "ganache mnemonic (click me)",
+        "info": "siren suit gift pill insect build expand decade valid roof blind museum",
+        "x": 140,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "54dbf896f27a666e",
+        "type": "comment",
+        "z": "b018721cb4446a56",
+        "name": "Info",
+        "info": "This flow shows an example of the whole minting process, step by step:\n1. Create & upload digital asset to IPFS\n2. Prepare & upload metadata.json to IPFS\n    - Name\n    - Abbreviation\n    - Description\n    - Image\n3. Mint NFT\n    - Find out recipient address",
+        "x": 350,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "c7cea73df64560f5",
+        "type": "comment",
+        "z": "b018721cb4446a56",
+        "name": "1. Create & upload digital assets to IPFS",
+        "info": "",
+        "x": 180,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "4693eb0382799800",
+        "type": "inject",
+        "z": "b018721cb4446a56",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 360,
+        "wires": [
+            [
+                "baf888eb38517619"
+            ]
+        ]
+    },
+    {
+        "id": "841f7296d2d04a32",
+        "type": "file",
+        "z": "b018721cb4446a56",
+        "name": "Save to File",
+        "filename": "NFT/nft.jpg",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 570,
+        "y": 360,
+        "wires": [
+            [
+                "3254f3ce206969bd"
+            ]
+        ]
+    },
+    {
+        "id": "baf888eb38517619",
+        "type": "http request",
+        "z": "b018721cb4446a56",
+        "name": "Download random picture",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "https://picsum.photos/1920/1080",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 330,
+        "y": 360,
+        "wires": [
+            [
+                "841f7296d2d04a32"
+            ]
+        ]
+    },
+    {
+        "id": "3254f3ce206969bd",
+        "type": "function",
+        "z": "b018721cb4446a56",
+        "name": "Upload to IPFS (using SDK)",
+        "func": "const pinata = pinataSDK(flow.get(\"apikey\"), flow.get(\"apisecret\"));\n\nconst options = {\n    pinataMetadata: {\n        name: \"nft\",\n    }\n};\n\nconst readableStreamForFile = fs.createReadStream(\"NFT/nft.jpg\");\n\nawait pinata.pinFileToIPFS(readableStreamForFile, options).then((result) => {\n    flow.set(\"image-ipfs\",result[\"IpfsHash\"])\n    msg.payload = result\n}).catch((err) => {\n    node.warn(err);\n});\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 820,
+        "y": 360,
+        "wires": [
+            [
+                "e83b950ec7c91786"
+            ]
+        ]
+    },
+    {
+        "id": "cf1cbc4e9cf0a714",
+        "type": "inject",
+        "z": "b018721cb4446a56",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 420,
+        "wires": [
+            [
+                "a8307adca03620fb"
+            ]
+        ]
+    },
+    {
+        "id": "a8307adca03620fb",
+        "type": "function",
+        "z": "b018721cb4446a56",
+        "name": "Read current media ipfs hash",
+        "func": "msg.payload = flow.get(\"image-ipfs\")\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 340,
+        "y": 420,
+        "wires": [
+            [
+                "a30be2cdccb4aef7"
+            ]
+        ]
+    },
+    {
+        "id": "a30be2cdccb4aef7",
+        "type": "debug",
+        "z": "b018721cb4446a56",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "10dd4435e4427e12",
+        "type": "comment",
+        "z": "b018721cb4446a56",
+        "name": "2. Prepare & upload metadata.json to IPFS",
+        "info": "",
+        "x": 180,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "a49a3ce5ddbde54b",
+        "type": "inject",
+        "z": "b018721cb4446a56",
+        "name": "Add metadata",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"name\":\"sample name\",\"description\":\"step by step\"}",
+        "payloadType": "json",
+        "x": 110,
+        "y": 560,
+        "wires": [
+            [
+                "4bb0456d2995bd31"
+            ]
+        ]
+    },
+    {
+        "id": "4bb0456d2995bd31",
+        "type": "function",
+        "z": "b018721cb4446a56",
+        "name": "add image ipfs hash",
+        "func": "msg.payload[\"image\"] = \"https://ipfs.io/ipfs/\" + flow.get(\"image-ipfs\")\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 340,
+        "y": 560,
+        "wires": [
+            [
+                "613eace8533ea808"
+            ]
+        ]
+    },
+    {
+        "id": "c977a06aafc79b48",
+        "type": "debug",
+        "z": "b018721cb4446a56",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "613eace8533ea808",
+        "type": "function",
+        "z": "b018721cb4446a56",
+        "name": "Upload to IPFS (using SDK)",
+        "func": "const pinata = pinataSDK(flow.get(\"apikey\"), flow.get(\"apisecret\"));\n\nconst options = {\n    pinataMetadata: {\n        name: \"metadata.json\"\n    }\n};\n\nawait pinata.pinJSONToIPFS(msg.payload, options).then((result) => {\n    flow.set(\"metadata-ipfs\",result[\"IpfsHash\"])\n    msg.payload = result\n}).catch((err) => {\n    node.warn(err);\n});\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 620,
+        "y": 560,
+        "wires": [
+            [
+                "c977a06aafc79b48"
+            ]
+        ]
+    },
+    {
+        "id": "6a90dd84fd992719",
+        "type": "inject",
+        "z": "b018721cb4446a56",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 620,
+        "wires": [
+            [
+                "35a5ef6d453065c1"
+            ]
+        ]
+    },
+    {
+        "id": "35a5ef6d453065c1",
+        "type": "function",
+        "z": "b018721cb4446a56",
+        "name": "Read current metadata ipfs hash",
+        "func": "msg.payload = flow.get(\"metadata-ipfs\")\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 350,
+        "y": 620,
+        "wires": [
+            [
+                "90cc5cbe243cf52e"
+            ]
+        ]
+    },
+    {
+        "id": "90cc5cbe243cf52e",
+        "type": "debug",
+        "z": "b018721cb4446a56",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "e64286c1aed42923",
+        "type": "comment",
+        "z": "b018721cb4446a56",
+        "name": "3. Mint NFT",
+        "info": "",
+        "x": 90,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "e9d01cb5f8cb9816",
+        "type": "contract-call",
+        "z": "b018721cb4446a56",
+        "name": "safeMint() (Caller: Account 1)",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "safeMint",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 640,
+        "y": 800,
+        "wires": [
+            [],
+            [
+                "257e35fe703b874a"
+            ]
+        ]
+    },
+    {
+        "id": "af40f0d050613e0c",
+        "type": "function",
+        "z": "b018721cb4446a56",
+        "name": "add metadata URI",
+        "func": "var account = msg.payload\nvar url = \"https://ipfs.io/ipfs/\" + flow.get(\"metadata-ipfs\")\nmsg.payload = [account, url]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 370,
+        "y": 800,
+        "wires": [
+            [
+                "e9d01cb5f8cb9816"
+            ]
+        ]
+    },
+    {
+        "id": "7073886e0c4cccdb",
+        "type": "inject",
+        "z": "b018721cb4446a56",
+        "name": "Recipient: Account 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x520528DC344442b79223b4927Db1314af84f68c3",
+        "payloadType": "str",
+        "x": 130,
+        "y": 760,
+        "wires": [
+            [
+                "af40f0d050613e0c"
+            ]
+        ]
+    },
+    {
+        "id": "7ed1dcfccdbd06ad",
+        "type": "inject",
+        "z": "b018721cb4446a56",
+        "name": "Recipient: Account 2",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x151BFbed168a404cCF951B5413b420b22eC90f98",
+        "payloadType": "str",
+        "x": 130,
+        "y": 800,
+        "wires": [
+            [
+                "af40f0d050613e0c"
+            ]
+        ]
+    },
+    {
+        "id": "0dc164cf7c710265",
+        "type": "inject",
+        "z": "b018721cb4446a56",
+        "name": "Recipient: Account 3",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0",
+        "payloadType": "str",
+        "x": 130,
+        "y": 840,
+        "wires": [
+            [
+                "af40f0d050613e0c"
+            ]
+        ]
+    },
+    {
+        "id": "257e35fe703b874a",
+        "type": "debug",
+        "z": "b018721cb4446a56",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "msg.summary.args[1]",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "e83b950ec7c91786",
+        "type": "debug",
+        "z": "b018721cb4446a56",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1070,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f6df961a820ca291",
+        "type": "comment",
+        "z": "b018721cb4446a56",
+        "name": "All in one step",
+        "info": "",
+        "x": 90,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "7e21195f1251f915",
+        "type": "file",
+        "z": "b018721cb4446a56",
+        "name": "Save to File",
+        "filename": "NFT/nft.jpg",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "true",
+        "encoding": "none",
+        "x": 630,
+        "y": 1020,
+        "wires": [
+            [
+                "00f117eb65e893c1"
+            ]
+        ]
+    },
+    {
+        "id": "7ffee2d13bd00670",
+        "type": "http request",
+        "z": "b018721cb4446a56",
+        "name": "Download random picture",
+        "method": "GET",
+        "ret": "bin",
+        "paytoqs": "ignore",
+        "url": "https://picsum.photos/1920/1080",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 390,
+        "y": 1020,
+        "wires": [
+            [
+                "7e21195f1251f915"
+            ]
+        ]
+    },
+    {
+        "id": "00f117eb65e893c1",
+        "type": "function",
+        "z": "b018721cb4446a56",
+        "name": "Upload image to IPFS",
+        "func": "const pinata = pinataSDK(flow.get(\"apikey\"), flow.get(\"apisecret\"));\n\nconst options = {\n    pinataMetadata: {\n        name: \"nft\",\n    }\n};\n\nconst readableStreamForFile = fs.createReadStream(\"NFT/nft.jpg\");\n\nawait pinata.pinFileToIPFS(readableStreamForFile, options).then((result) => {\n    msg.image = result\n}).catch((err) => {\n    node.warn(err);\n});\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 860,
+        "y": 1020,
+        "wires": [
+            [
+                "6d22b43ce535b059"
+            ]
+        ]
+    },
+    {
+        "id": "7c809a64f4c8297f",
+        "type": "function",
+        "z": "b018721cb4446a56",
+        "name": "Upload metadata to IPFS",
+        "func": "const pinata = pinataSDK(flow.get(\"apikey\"), flow.get(\"apisecret\"));\n\nconst options = {\n    pinataMetadata: {\n        name: \"metadata.json\"\n    }\n};\n\nawait pinata.pinJSONToIPFS(msg.metadata, options).then((result) => {\n    msg.metadataresult = result\n}).catch((err) => {\n    node.warn(err);\n});\nvar url = \"https://ipfs.io/ipfs/\" + msg.metadataresult[\"IpfsHash\"]\nmsg.payload = [msg.account, url]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 850,
+        "y": 1080,
+        "wires": [
+            [
+                "c7ad13b92cc43d72"
+            ]
+        ]
+    },
+    {
+        "id": "ebe200e746e53451",
+        "type": "inject",
+        "z": "b018721cb4446a56",
+        "name": "Recipient: Account 1",
+        "props": [
+            {
+                "p": "account",
+                "v": "0x520528DC344442b79223b4927Db1314af84f68c3",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 980,
+        "wires": [
+            [
+                "7ffee2d13bd00670"
+            ]
+        ]
+    },
+    {
+        "id": "cbc007a94938d6ed",
+        "type": "inject",
+        "z": "b018721cb4446a56",
+        "name": "Recipient: Account 2",
+        "props": [
+            {
+                "p": "account",
+                "v": "0x151BFbed168a404cCF951B5413b420b22eC90f98",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "str",
+        "x": 130,
+        "y": 1020,
+        "wires": [
+            [
+                "7ffee2d13bd00670"
+            ]
+        ]
+    },
+    {
+        "id": "5acb3a8b37a8e835",
+        "type": "inject",
+        "z": "b018721cb4446a56",
+        "name": "Recipient: Account 3",
+        "props": [
+            {
+                "p": "account",
+                "v": "0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 130,
+        "y": 1060,
+        "wires": [
+            [
+                "7ffee2d13bd00670"
+            ]
+        ]
+    },
+    {
+        "id": "6d22b43ce535b059",
+        "type": "function",
+        "z": "b018721cb4446a56",
+        "name": "Create metadata.json",
+        "func": "msg.metadata = {\n    \"name\": \"sample name\",\n    \"description\": \"all in one step\"\n}\nmsg.metadata[\"image\"] = \"https://ipfs.io/ipfs/\" + msg.image[\"IpfsHash\"]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 580,
+        "y": 1080,
+        "wires": [
+            [
+                "7c809a64f4c8297f"
+            ]
+        ]
+    },
+    {
+        "id": "c7ad13b92cc43d72",
+        "type": "contract-call",
+        "z": "b018721cb4446a56",
+        "name": "safeMint() (Caller: Account 1)",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "safeMint",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 600,
+        "y": 1140,
+        "wires": [
+            [],
+            [
+                "92ca6383570b4c1e"
+            ]
+        ]
+    },
+    {
+        "id": "b7e864434b5d7fae",
+        "type": "credentials",
+        "z": "b018721cb4446a56",
+        "name": "",
+        "props": [
+            {
+                "value": "apikey",
+                "type": "flow"
+            },
+            {
+                "value": "apisecret",
+                "type": "flow"
+            }
+        ],
+        "x": 290,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c4618071eb016e8b",
+        "type": "inject",
+        "z": "b018721cb4446a56",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "b7e864434b5d7fae"
+            ]
+        ]
+    },
+    {
+        "id": "87c8866e2becfdc3",
+        "type": "comment",
+        "z": "b018721cb4446a56",
+        "name": "0. Update API Keys for pinata.cloud",
+        "info": "",
+        "x": 160,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5c8da6719038dd8d",
+        "type": "comment",
+        "z": "b018721cb4446a56",
+        "name": "Smart Contract: Test Token",
+        "info": "",
+        "x": 550,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "ba86a8ac5b540b16",
+        "type": "function",
+        "z": "b018721cb4446a56",
+        "name": "Test Authentication with API",
+        "func": "const pinata = pinataSDK(flow.get(\"apikey\"), flow.get(\"apisecret\"));\n\nawait pinata.testAuthentication().then((result) => {\n\tmsg.payload = result\n}).catch((err) => {\n\tnode.warn(err);\n});\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 340,
+        "y": 220,
+        "wires": [
+            [
+                "8ac861b537d7b598"
+            ]
+        ]
+    },
+    {
+        "id": "7df574af10df384e",
+        "type": "inject",
+        "z": "b018721cb4446a56",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 220,
+        "wires": [
+            [
+                "ba86a8ac5b540b16"
+            ]
+        ]
+    },
+    {
+        "id": "8ac861b537d7b598",
+        "type": "debug",
+        "z": "b018721cb4446a56",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "92ca6383570b4c1e",
+        "type": "debug",
+        "z": "b018721cb4446a56",
+        "name": "NFT Information",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "{\t    \"Token ID\": msg.summary.result.events.Transfer.returnValues.tokenId,\t    \"Metadata IPFS URL\": msg.summary.args[1],\t    \"Image IPFS URL\": \"https://ipfs.io/ipfs/\" & msg.image.IpfsHash\t}",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 860,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "e3303b45668bc92e",
+        "type": "comment",
+        "z": "f8f234612d9ad36c",
+        "name": "ganache mnemonic (click me)",
+        "info": "siren suit gift pill insect build expand decade valid roof blind museum",
+        "x": 140,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "fbfffb565ec61c26",
+        "type": "comment",
+        "z": "f8f234612d9ad36c",
+        "name": "Info",
+        "info": "This flow is similar to the \"NFT Mint Process\" in that it shows the entire process of minting an NFT. However, in this flow it has been adapted to the actual use case of our project. \n\nThe necessary pictures and metadata.json files are already provided with the github repository under the folder \"Node-RED Flows/use-case\". Only an All-in-one-step is provided! ",
+        "x": 350,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "2f03d4ddac9139c5",
+        "type": "credentials",
+        "z": "f8f234612d9ad36c",
+        "name": "",
+        "props": [
+            {
+                "value": "apikey",
+                "type": "flow"
+            },
+            {
+                "value": "apisecret",
+                "type": "flow"
+            }
+        ],
+        "x": 290,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "9b4220077ab8b065",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "2f03d4ddac9139c5"
+            ]
+        ]
+    },
+    {
+        "id": "1c80948af2bdcdd8",
+        "type": "comment",
+        "z": "f8f234612d9ad36c",
+        "name": "0. Update API Keys for pinata.cloud",
+        "info": "",
+        "x": 160,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "1518b1adfd8d5aa8",
+        "type": "comment",
+        "z": "f8f234612d9ad36c",
+        "name": "Smart Contract: Module",
+        "info": "",
+        "x": 540,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "986e60a65341811e",
+        "type": "function",
+        "z": "f8f234612d9ad36c",
+        "name": "Test Authentication with API",
+        "func": "const pinata = pinataSDK(flow.get(\"apikey\"), flow.get(\"apisecret\"));\n\nawait pinata.testAuthentication().then((result) => {\n\tmsg.payload = result\n}).catch((err) => {\n\tnode.warn(err);\n});\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 340,
+        "y": 220,
+        "wires": [
+            [
+                "56ea67e667c4fdaf"
+            ]
+        ]
+    },
+    {
+        "id": "5e31d08893815bb2",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 220,
+        "wires": [
+            [
+                "986e60a65341811e"
+            ]
+        ]
+    },
+    {
+        "id": "56ea67e667c4fdaf",
+        "type": "debug",
+        "z": "f8f234612d9ad36c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 590,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "d86f3b35ccd2eefe",
+        "type": "comment",
+        "z": "f8f234612d9ad36c",
+        "name": "All in one step",
+        "info": "",
+        "x": 90,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "b3350579f54432b2",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "ASTAT",
+        "props": [
+            {
+                "p": "modul",
+                "v": "ASTAT",
+                "vt": "str"
+            },
+            {
+                "p": "account",
+                "v": "account",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 90,
+        "y": 640,
+        "wires": [
+            [
+                "7c83d507f28bbacc"
+            ]
+        ]
+    },
+    {
+        "id": "6b8dd423d03f3941",
+        "type": "function",
+        "z": "f8f234612d9ad36c",
+        "name": "Update absolute path to folder here",
+        "func": "//Update this variable with the correct absolute path\n//must end with a slash \"/\"\nvar path = \"/home/wipro/Desktop/WIPRO-NFT/Node-RED Flows/use-case/\"\n\n//DO NOT CHANGE\nvar file = path + \"ASTAT_metadata.json\"\nflow.set(\"use-case-path\", path)\nmsg.filename = file\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 360,
+        "y": 360,
+        "wires": [
+            [
+                "a2bc58a7b5620269"
+            ]
+        ]
+    },
+    {
+        "id": "f32ec7e2a54d2e1c",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 360,
+        "wires": [
+            [
+                "6b8dd423d03f3941"
+            ]
+        ]
+    },
+    {
+        "id": "28245bf0daf1a4e7",
+        "type": "comment",
+        "z": "f8f234612d9ad36c",
+        "name": "0. Update path to use-case folder (there should be no error)",
+        "info": "",
+        "x": 230,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "a2bc58a7b5620269",
+        "type": "file in",
+        "z": "f8f234612d9ad36c",
+        "name": "",
+        "filename": "",
+        "format": "utf8",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 620,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7c83d507f28bbacc",
+        "type": "function",
+        "z": "f8f234612d9ad36c",
+        "name": "restrict to one mint per module",
+        "func": "if (flow.get(msg.modul) == 1) {\n    node.warn(msg.modul + \" already minted once\")\n    return null;\n} else {\n    flow.set(msg.modul, 1)\n    return msg;\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 390,
+        "y": 680,
+        "wires": [
+            [
+                "7337ee0b8134a9e8"
+            ]
+        ]
+    },
+    {
+        "id": "872f60f971d1e1bd",
+        "type": "function",
+        "z": "f8f234612d9ad36c",
+        "name": "Upload image to IPFS",
+        "func": "const pinata = pinataSDK(flow.get(\"apikey\"), flow.get(\"apisecret\"));\n\nvar path = msg.image_file\n\nconst readableStreamForFile = fs.createReadStream(path);\n\nawait pinata.pinFileToIPFS(readableStreamForFile).then((result) => {\n    msg.image_result = result\n}).catch((err) => {\n    node.warn(err);\n});\n\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 380,
+        "y": 740,
+        "wires": [
+            [
+                "8912709bb9ec78f1"
+            ]
+        ]
+    },
+    {
+        "id": "a124342493315e97",
+        "type": "contract-call",
+        "z": "f8f234612d9ad36c",
+        "name": "safeMint() (Caller: Account 1)",
+        "smartContract": "2e708a4aa8404c47",
+        "contractFunction": "safeMint",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 400,
+        "y": 800,
+        "wires": [
+            [],
+            [
+                "ea095937c0190dd7"
+            ]
+        ]
+    },
+    {
+        "id": "ea095937c0190dd7",
+        "type": "debug",
+        "z": "f8f234612d9ad36c",
+        "name": "NFT Information",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "{\t    \"Token ID\": msg.summary.result.events.Transfer.returnValues.tokenId,\t    \"Modul\": msg.modul,\t    \"Metadata IPFS URL\": msg.summary.args[1],\t    \"Image IPFS URL\": \"https://ipfs.io/ipfs/\" & msg.image_result.IpfsHash\t}",
+        "targetType": "jsonata",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 660,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "39e8e8b9e2e9ce74",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "CISO_ISSUES",
+        "props": [
+            {
+                "p": "modul",
+                "v": "CISO_ISSUES",
+                "vt": "str"
+            },
+            {
+                "p": "account",
+                "v": "account",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 120,
+        "y": 680,
+        "wires": [
+            [
+                "7c83d507f28bbacc"
+            ]
+        ]
+    },
+    {
+        "id": "04ce472daa586d33",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "CRS",
+        "props": [
+            {
+                "p": "modul",
+                "v": "CRS",
+                "vt": "str"
+            },
+            {
+                "p": "account",
+                "v": "account",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 90,
+        "y": 720,
+        "wires": [
+            [
+                "7c83d507f28bbacc"
+            ]
+        ]
+    },
+    {
+        "id": "820174d33c359368",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "DSO",
+        "props": [
+            {
+                "p": "modul",
+                "v": "DSO",
+                "vt": "str"
+            },
+            {
+                "p": "account",
+                "v": "account",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 90,
+        "y": 760,
+        "wires": [
+            [
+                "7c83d507f28bbacc"
+            ]
+        ]
+    },
+    {
+        "id": "ca380db8ac19ac8e",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "FORDIN",
+        "props": [
+            {
+                "p": "modul",
+                "v": "FORDIN",
+                "vt": "str"
+            },
+            {
+                "p": "account",
+                "v": "account",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 100,
+        "y": 800,
+        "wires": [
+            [
+                "7c83d507f28bbacc"
+            ]
+        ]
+    },
+    {
+        "id": "bc418fc1bf304941",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "GPOR",
+        "props": [
+            {
+                "p": "modul",
+                "v": "GPOR",
+                "vt": "str"
+            },
+            {
+                "p": "account",
+                "v": "account",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 90,
+        "y": 840,
+        "wires": [
+            [
+                "7c83d507f28bbacc"
+            ]
+        ]
+    },
+    {
+        "id": "70e932d5c6ce545d",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "IAM",
+        "props": [
+            {
+                "p": "modul",
+                "v": "IAM",
+                "vt": "str"
+            },
+            {
+                "p": "account",
+                "v": "account",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 90,
+        "y": 880,
+        "wires": [
+            [
+                "7c83d507f28bbacc"
+            ]
+        ]
+    },
+    {
+        "id": "7e9e78db3a82bceb",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "KRKO",
+        "props": [
+            {
+                "p": "modul",
+                "v": "KRKO",
+                "vt": "str"
+            },
+            {
+                "p": "account",
+                "v": "account",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 90,
+        "y": 920,
+        "wires": [
+            [
+                "7c83d507f28bbacc"
+            ]
+        ]
+    },
+    {
+        "id": "2dc5d00bcbb11442",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "SGC",
+        "props": [
+            {
+                "p": "modul",
+                "v": "SGC",
+                "vt": "str"
+            },
+            {
+                "p": "account",
+                "v": "account",
+                "vt": "flow"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 90,
+        "y": 960,
+        "wires": [
+            [
+                "7c83d507f28bbacc"
+            ]
+        ]
+    },
+    {
+        "id": "8912709bb9ec78f1",
+        "type": "function",
+        "z": "f8f234612d9ad36c",
+        "name": "Upload metadata to IPFS",
+        "func": "const pinata = pinataSDK(flow.get(\"apikey\"), flow.get(\"apisecret\"));\n\nvar name = msg.modul + \"_metadata.json\"\nmsg.metadata = JSON.parse(fs.readFileSync(msg.metadata_file, 'utf8'));\nmsg.metadata[\"image\"] = \"https://ipfs.io/ipfs/\" + msg.image_result[\"IpfsHash\"]\n\nconst options = {\n    pinataMetadata: {\n        name: name\n    }\n};\n\nawait pinata.pinJSONToIPFS(msg.metadata, options).then((result) => {\n    msg.metadata_result = result\n}).catch((err) => {\n    node.warn(err);\n});\nvar url = \"https://ipfs.io/ipfs/\" + msg.metadata_result[\"IpfsHash\"]\nmsg.payload = [msg.account, url]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 650,
+        "y": 740,
+        "wires": [
+            [
+                "a124342493315e97"
+            ]
+        ]
+    },
+    {
+        "id": "60f45e6e3721a498",
+        "type": "comment",
+        "z": "f8f234612d9ad36c",
+        "name": "Functions Playground",
+        "info": "",
+        "x": 120,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "7337ee0b8134a9e8",
+        "type": "function",
+        "z": "f8f234612d9ad36c",
+        "name": "prepare arguments",
+        "func": "var path = flow.get(\"use-case-path\")\n\nmsg.metadata_file = path + msg.modul + \"_metadata.json\"\nmsg.image_file = path + msg.modul + \".png\"\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 670,
+        "y": 680,
+        "wires": [
+            [
+                "872f60f971d1e1bd"
+            ]
+        ]
+    },
+    {
+        "id": "a22b5f0aad5be90d",
+        "type": "comment",
+        "z": "f8f234612d9ad36c",
+        "name": "Reset restriction of one mint per module",
+        "info": "",
+        "x": 170,
+        "y": 1040,
+        "wires": []
+    },
+    {
+        "id": "9e2bc9ddd8402ea0",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "Module",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"ASTAT\",\"CISO_ISSUES\",\"CRS\",\"DSO\",\"FORDIN\",\"GPOR\",\"IAM\",\"KRKO\",\"SGC\"]",
+        "payloadType": "json",
+        "x": 90,
+        "y": 1100,
+        "wires": [
+            [
+                "9b5e640cb971a59e"
+            ]
+        ]
+    },
+    {
+        "id": "9b5e640cb971a59e",
+        "type": "function",
+        "z": "f8f234612d9ad36c",
+        "name": "Remove restriction",
+        "func": "for (let x in msg.payload) {\n    flow.set(msg.payload[x], 0)\n}\n\nmsg.payload = \"Restriction reset for all modules\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [
+            {
+                "var": "pinataSDK",
+                "module": "@pinata/sdk"
+            },
+            {
+                "var": "fs",
+                "module": "fs"
+            }
+        ],
+        "x": 290,
+        "y": 1100,
+        "wires": [
+            [
+                "c5dc64d642ee3015"
+            ]
+        ]
+    },
+    {
+        "id": "c5dc64d642ee3015",
+        "type": "debug",
+        "z": "f8f234612d9ad36c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "353a8c820f4b699c",
+        "type": "contract-call",
+        "z": "f8f234612d9ad36c",
+        "name": "balanceOf()",
+        "smartContract": "2e708a4aa8404c47",
+        "contractFunction": "balanceOf",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 290,
+        "y": 1280,
+        "wires": [
+            [],
+            [
+                "4c822a1e311b2d65"
+            ]
+        ]
+    },
+    {
+        "id": "a2c6e63d33cec138",
+        "type": "debug",
+        "z": "f8f234612d9ad36c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "4c822a1e311b2d65",
+        "type": "function",
+        "z": "f8f234612d9ad36c",
+        "name": "",
+        "func": "msg.payload = \"Amount of NFT(s): \" + msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 1280,
+        "wires": [
+            [
+                "a2c6e63d33cec138"
+            ]
+        ]
+    },
+    {
+        "id": "62999eaf62dd3a69",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "TokenID \"1\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1380,
+        "wires": [
+            [
+                "00f73e916e029fa0"
+            ]
+        ]
+    },
+    {
+        "id": "00f73e916e029fa0",
+        "type": "contract-call",
+        "z": "f8f234612d9ad36c",
+        "name": "tokenURI()",
+        "smartContract": "2e708a4aa8404c47",
+        "contractFunction": "tokenURI",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 330,
+        "y": 1540,
+        "wires": [
+            [],
+            [
+                "dda53dc00b361def"
+            ]
+        ]
+    },
+    {
+        "id": "dda53dc00b361def",
+        "type": "debug",
+        "z": "f8f234612d9ad36c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 1540,
+        "wires": []
+    },
+    {
+        "id": "40ca10cef537c5b2",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "TokenID \"2\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1420,
+        "wires": [
+            [
+                "00f73e916e029fa0"
+            ]
+        ]
+    },
+    {
+        "id": "0a06b6c35873090e",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "TokenID \"3\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1460,
+        "wires": [
+            [
+                "00f73e916e029fa0"
+            ]
+        ]
+    },
+    {
+        "id": "a4e572d885bcd674",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "TokenID \"4\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "4",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1500,
+        "wires": [
+            [
+                "00f73e916e029fa0"
+            ]
+        ]
+    },
+    {
+        "id": "97741fbfcd978fe1",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "TokenID \"5\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "5",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1540,
+        "wires": [
+            [
+                "00f73e916e029fa0"
+            ]
+        ]
+    },
+    {
+        "id": "fdf37d6bdc36d48e",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "TokenID \"6\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "6",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1580,
+        "wires": [
+            [
+                "00f73e916e029fa0"
+            ]
+        ]
+    },
+    {
+        "id": "a7c761ac1a728ebf",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "TokenID \"7\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "7",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1620,
+        "wires": [
+            [
+                "00f73e916e029fa0"
+            ]
+        ]
+    },
+    {
+        "id": "b9ed442e1e1f26dd",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "TokenID \"8\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "8",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1660,
+        "wires": [
+            [
+                "00f73e916e029fa0"
+            ]
+        ]
+    },
+    {
+        "id": "0c670e8f037b62e9",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "TokenID \"9\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "9",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1700,
+        "wires": [
+            [
+                "00f73e916e029fa0"
+            ]
+        ]
+    },
+    {
+        "id": "3c11548cb2a281fe",
+        "type": "debug",
+        "z": "f8f234612d9ad36c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "6b5d77d6265e43d8",
+        "type": "contract-call",
+        "z": "f8f234612d9ad36c",
+        "name": "balanceOf()",
+        "smartContract": "2e708a4aa8404c47",
+        "contractFunction": "balanceOf",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 290,
+        "y": 1800,
+        "wires": [
+            [],
+            [
+                "24f1857e1570f36d"
+            ]
+        ]
+    },
+    {
+        "id": "24f1857e1570f36d",
+        "type": "function",
+        "z": "f8f234612d9ad36c",
+        "name": "Loop",
+        "func": "msgList = []\nvar account = msg.summary.args[0]\nfor (var i = 0; i < msg.payload; i++)\n    msgList.push({payload:[account,i]})\nreturn [msgList];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 1800,
+        "wires": [
+            [
+                "60ace71d2f992385"
+            ]
+        ]
+    },
+    {
+        "id": "60ace71d2f992385",
+        "type": "contract-call",
+        "z": "f8f234612d9ad36c",
+        "name": "tokenOfOwnerByIndex()",
+        "smartContract": "2e708a4aa8404c47",
+        "contractFunction": "tokenOfOwnerByIndex",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 690,
+        "y": 1800,
+        "wires": [
+            [],
+            [
+                "284005dcd9342d26"
+            ]
+        ]
+    },
+    {
+        "id": "8e5a9d4d58e74816",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "Account 2",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x151BFbed168a404cCF951B5413b420b22eC90f98",
+        "payloadType": "str",
+        "x": 100,
+        "y": 1800,
+        "wires": [
+            [
+                "6b5d77d6265e43d8"
+            ]
+        ]
+    },
+    {
+        "id": "284005dcd9342d26",
+        "type": "function",
+        "z": "f8f234612d9ad36c",
+        "name": "Add text to result",
+        "func": "msg.payload = \"TokenID: \" + msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 1800,
+        "wires": [
+            [
+                "3c11548cb2a281fe"
+            ]
+        ]
+    },
+    {
+        "id": "9e2c79aa30239834",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "Account 3",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0",
+        "payloadType": "str",
+        "x": 100,
+        "y": 1840,
+        "wires": [
+            [
+                "6b5d77d6265e43d8"
+            ]
+        ]
+    },
+    {
+        "id": "859765c99ccfc737",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "Account 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x520528DC344442b79223b4927Db1314af84f68c3",
+        "payloadType": "str",
+        "x": 100,
+        "y": 1760,
+        "wires": [
+            [
+                "6b5d77d6265e43d8"
+            ]
+        ]
+    },
+    {
+        "id": "4e2990160f501969",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "Account 2",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x151BFbed168a404cCF951B5413b420b22eC90f98",
+        "payloadType": "str",
+        "x": 100,
+        "y": 1280,
+        "wires": [
+            [
+                "353a8c820f4b699c"
+            ]
+        ]
+    },
+    {
+        "id": "3bc490bdee4af1e9",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "Account 3",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0",
+        "payloadType": "str",
+        "x": 100,
+        "y": 1320,
+        "wires": [
+            [
+                "353a8c820f4b699c"
+            ]
+        ]
+    },
+    {
+        "id": "71f2eb16049738f6",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "Account 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x520528DC344442b79223b4927Db1314af84f68c3",
+        "payloadType": "str",
+        "x": 100,
+        "y": 1240,
+        "wires": [
+            [
+                "353a8c820f4b699c"
+            ]
+        ]
+    },
+    {
+        "id": "4faaabfda7126830",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "Account 2",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x151BFbed168a404cCF951B5413b420b22eC90f98",
+        "payloadType": "str",
+        "x": 100,
+        "y": 540,
+        "wires": [
+            [
+                "c8909bd048404600"
+            ]
+        ]
+    },
+    {
+        "id": "6e78adb07e1ddb61",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "Account 3",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0",
+        "payloadType": "str",
+        "x": 100,
+        "y": 580,
+        "wires": [
+            [
+                "c8909bd048404600"
+            ]
+        ]
+    },
+    {
+        "id": "d184b4f3e9b5ad76",
+        "type": "inject",
+        "z": "f8f234612d9ad36c",
+        "name": "Account 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x520528DC344442b79223b4927Db1314af84f68c3",
+        "payloadType": "str",
+        "x": 100,
+        "y": 500,
+        "wires": [
+            [
+                "c8909bd048404600"
+            ]
+        ]
+    },
+    {
+        "id": "c8909bd048404600",
+        "type": "function",
+        "z": "f8f234612d9ad36c",
+        "name": "Set receiver account",
+        "func": "flow.set(\"account\", msg.payload)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 320,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e434b4b5fad80071",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "safeMint()",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "safeMint",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 500,
+        "y": 200,
+        "wires": [
+            [],
+            [
+                "cf0490308dfc0104"
+            ]
+        ]
+    },
+    {
+        "id": "41125982c9c0efaf",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "TokenID \"1\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1720,
+        "wires": [
+            [
+                "53038aa021512e97"
+            ]
+        ]
+    },
+    {
+        "id": "53038aa021512e97",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "ownerOf()",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "ownerOf",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 320,
+        "y": 1800,
+        "wires": [
+            [],
+            [
+                "c30e6f4b0008586a"
+            ]
+        ]
+    },
+    {
+        "id": "a759e14b3453b5b3",
+        "type": "comment",
+        "z": "b40f6c26a336a306",
+        "name": "mint new NFT with random URI",
+        "info": "",
+        "x": 150,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "abf129ed8667d7d4",
+        "type": "comment",
+        "z": "b40f6c26a336a306",
+        "name": "read-only function calls",
+        "info": "",
+        "x": 120,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "6aa15b1d7c23b45c",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 830,
+        "y": 1800,
+        "wires": []
+    },
+    {
+        "id": "be628458da1f761c",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 1940,
+        "wires": [
+            [
+                "f26e2511ee4ba962"
+            ]
+        ]
+    },
+    {
+        "id": "f26e2511ee4ba962",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "name()",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "name",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 280,
+        "y": 1940,
+        "wires": [
+            [],
+            [
+                "910b3966b3280101"
+            ]
+        ]
+    },
+    {
+        "id": "910b3966b3280101",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 1940,
+        "wires": []
+    },
+    {
+        "id": "13ff269e8424f1c2",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 2000,
+        "wires": [
+            [
+                "2db3c28cb498b224"
+            ]
+        ]
+    },
+    {
+        "id": "2db3c28cb498b224",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "symbol()",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "symbol",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 280,
+        "y": 2000,
+        "wires": [
+            [],
+            [
+                "09a440811a80fa6e"
+            ]
+        ]
+    },
+    {
+        "id": "09a440811a80fa6e",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 2000,
+        "wires": []
+    },
+    {
+        "id": "2bccc0e5f928cc3a",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x520528DC344442b79223b4927Db1314af84f68c3",
+        "payloadType": "str",
+        "x": 100,
+        "y": 2120,
+        "wires": [
+            [
+                "662e51d3cee020e3"
+            ]
+        ]
+    },
+    {
+        "id": "662e51d3cee020e3",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "balanceOf()",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "balanceOf",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 290,
+        "y": 2160,
+        "wires": [
+            [],
+            [
+                "150022f0f3d977c7"
+            ]
+        ]
+    },
+    {
+        "id": "122be179b3938f26",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 2160,
+        "wires": []
+    },
+    {
+        "id": "f4f4b0c2f17216e1",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "TokenID \"2\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1760,
+        "wires": [
+            [
+                "53038aa021512e97"
+            ]
+        ]
+    },
+    {
+        "id": "05241990b10efcf7",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "TokenID \"3\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1800,
+        "wires": [
+            [
+                "53038aa021512e97"
+            ]
+        ]
+    },
+    {
+        "id": "9b8a3143b520a35b",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 2",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x151BFbed168a404cCF951B5413b420b22eC90f98",
+        "payloadType": "str",
+        "x": 100,
+        "y": 2160,
+        "wires": [
+            [
+                "662e51d3cee020e3"
+            ]
+        ]
+    },
+    {
+        "id": "d3acc5fb66fd6f62",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 3",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0",
+        "payloadType": "str",
+        "x": 100,
+        "y": 2200,
+        "wires": [
+            [
+                "662e51d3cee020e3"
+            ]
+        ]
+    },
+    {
+        "id": "ad71ca5f582f445b",
+        "type": "comment",
+        "z": "b40f6c26a336a306",
+        "name": "ganache mnemonic (click me)",
+        "info": "siren suit gift pill insect build expand decade valid roof blind museum",
+        "x": 140,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "2684e07c98f837c7",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "TokenID \"4\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "4",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1840,
+        "wires": [
+            [
+                "53038aa021512e97"
+            ]
+        ]
+    },
+    {
+        "id": "0bc11d4da4dce885",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "TokenID \"5\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "5",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1880,
+        "wires": [
+            [
+                "53038aa021512e97"
+            ]
+        ]
+    },
+    {
+        "id": "df25fe7142734656",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "TokenID \"1\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 110,
+        "y": 2260,
+        "wires": [
+            [
+                "3317396027d83a32"
+            ]
+        ]
+    },
+    {
+        "id": "3317396027d83a32",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "tokenURI()",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "tokenURI",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 330,
+        "y": 2340,
+        "wires": [
+            [],
+            [
+                "0aadaec40f1af874"
+            ]
+        ]
+    },
+    {
+        "id": "0aadaec40f1af874",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 2340,
+        "wires": []
+    },
+    {
+        "id": "9e77853add5d9a30",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "TokenID \"2\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2",
+        "payloadType": "str",
+        "x": 110,
+        "y": 2300,
+        "wires": [
+            [
+                "3317396027d83a32"
+            ]
+        ]
+    },
+    {
+        "id": "be7b2c800b0a9915",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "TokenID \"3\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "str",
+        "x": 110,
+        "y": 2340,
+        "wires": [
+            [
+                "3317396027d83a32"
+            ]
+        ]
+    },
+    {
+        "id": "54d953559c81e4f1",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "TokenID \"4\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "4",
+        "payloadType": "str",
+        "x": 110,
+        "y": 2380,
+        "wires": [
+            [
+                "3317396027d83a32"
+            ]
+        ]
+    },
+    {
+        "id": "36a90046df7f2278",
+        "type": "comment",
+        "z": "b40f6c26a336a306",
+        "name": "Transfer NFT (in this case for TokenID 1)",
+        "info": "",
+        "x": 180,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "5822b1e02b4f69d9",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "safeTransferFrom() (Caller: Acc 1)",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "safeTransferFrom",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 480,
+        "y": 400,
+        "wires": [
+            [],
+            [
+                "7d928bf47a082b5d"
+            ]
+        ]
+    },
+    {
+        "id": "c8eb17d91e55eca2",
+        "type": "function",
+        "z": "b40f6c26a336a306",
+        "name": "add random URI",
+        "func": "var account = msg.payload\nfunction random(length) {\n    var result = '';\n    var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';\n    var charactersLength = characters.length;\n    for ( var i = 0; i < length; i++ ) {\n      result += characters.charAt(Math.floor(Math.random() * charactersLength));\n   } return result;\n}\nvar uri = \"https://ipfs.io/ipfs/\" + random(46)\nmsg.payload = [account, uri]\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "e434b4b5fad80071"
+            ]
+        ]
+    },
+    {
+        "id": "7c520aced0545f0e",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x520528DC344442b79223b4927Db1314af84f68c3",
+        "payloadType": "str",
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "c8eb17d91e55eca2"
+            ]
+        ]
+    },
+    {
+        "id": "9d5366a38ce28a6b",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 2",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x151BFbed168a404cCF951B5413b420b22eC90f98",
+        "payloadType": "str",
+        "x": 100,
+        "y": 200,
+        "wires": [
+            [
+                "c8eb17d91e55eca2"
+            ]
+        ]
+    },
+    {
+        "id": "3c0f5feac39671e6",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 3",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0",
+        "payloadType": "str",
+        "x": 100,
+        "y": 240,
+        "wires": [
+            [
+                "c8eb17d91e55eca2"
+            ]
+        ]
+    },
+    {
+        "id": "3110091dd1a2759b",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "From Account 1 to Account 2",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x520528DC344442b79223b4927Db1314af84f68c3\",\"0x151BFbed168a404cCF951B5413b420b22eC90f98\",1]",
+        "payloadType": "json",
+        "x": 160,
+        "y": 380,
+        "wires": [
+            [
+                "5822b1e02b4f69d9"
+            ]
+        ]
+    },
+    {
+        "id": "713bab38e3bce536",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "From Account 1 to Account 3",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x520528DC344442b79223b4927Db1314af84f68c3\",\"0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0\",1]",
+        "payloadType": "json",
+        "x": 160,
+        "y": 420,
+        "wires": [
+            [
+                "5822b1e02b4f69d9"
+            ]
+        ]
+    },
+    {
+        "id": "69d824bfea9b3b9d",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "From Account 2 to Account 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x151BFbed168a404cCF951B5413b420b22eC90f98\",\"0x520528DC344442b79223b4927Db1314af84f68c3\",1]",
+        "payloadType": "json",
+        "x": 160,
+        "y": 480,
+        "wires": [
+            [
+                "a3371b5d316114b2"
+            ]
+        ]
+    },
+    {
+        "id": "98e8d842d4e7cd5a",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "From Account 2 to Account 3",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x151BFbed168a404cCF951B5413b420b22eC90f98\",\"0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0\",1]",
+        "payloadType": "json",
+        "x": 160,
+        "y": 520,
+        "wires": [
+            [
+                "a3371b5d316114b2"
+            ]
+        ]
+    },
+    {
+        "id": "34ccef80d0f7e32c",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "From Account 3 to Account 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0\",\"0x520528DC344442b79223b4927Db1314af84f68c3\",1]",
+        "payloadType": "json",
+        "x": 160,
+        "y": 580,
+        "wires": [
+            [
+                "7ba2b0018aea6360"
+            ]
+        ]
+    },
+    {
+        "id": "7bec976bc2928214",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "From Account 3 to Account 2",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0\",\"0x151BFbed168a404cCF951B5413b420b22eC90f98\",1]",
+        "payloadType": "json",
+        "x": 160,
+        "y": 620,
+        "wires": [
+            [
+                "7ba2b0018aea6360"
+            ]
+        ]
+    },
+    {
+        "id": "a3371b5d316114b2",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "safeTransferFrom() (Caller: Acc 2)",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "safeTransferFrom",
+        "senderAccount": "b4c8a7de7f10183b",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 480,
+        "y": 500,
+        "wires": [
+            [],
+            [
+                "6e634444a7809116"
+            ]
+        ]
+    },
+    {
+        "id": "7ba2b0018aea6360",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "safeTransferFrom() (Caller: Acc 3)",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "safeTransferFrom",
+        "senderAccount": "344348712eadfa87",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 480,
+        "y": 600,
+        "wires": [
+            [],
+            [
+                "b8c4abf48a8da8ba"
+            ]
+        ]
+    },
+    {
+        "id": "b5297288fce04774",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1170,
+        "y": 2520,
+        "wires": []
+    },
+    {
+        "id": "a37be624da70b52b",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x520528DC344442b79223b4927Db1314af84f68c3",
+        "payloadType": "str",
+        "x": 100,
+        "y": 2480,
+        "wires": [
+            [
+                "7c160195ba76db0e"
+            ]
+        ]
+    },
+    {
+        "id": "7c160195ba76db0e",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "balanceOf()",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "balanceOf",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 290,
+        "y": 2520,
+        "wires": [
+            [],
+            [
+                "66c76a5c6a30c2c1"
+            ]
+        ]
+    },
+    {
+        "id": "66c76a5c6a30c2c1",
+        "type": "function",
+        "z": "b40f6c26a336a306",
+        "name": "Loop",
+        "func": "msgList = []\nvar account = msg.summary.args[0]\nfor (var i = 0; i < msg.payload; i++)\n    msgList.push({payload:[account,i]})\nreturn [msgList];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 2520,
+        "wires": [
+            [
+                "69619a10ab2e4339"
+            ]
+        ]
+    },
+    {
+        "id": "69619a10ab2e4339",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "tokenOfOwnerByIndex()",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "tokenOfOwnerByIndex",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 690,
+        "y": 2520,
+        "wires": [
+            [],
+            [
+                "2d4d2c4510bf5469"
+            ]
+        ]
+    },
+    {
+        "id": "340121f24c4ba73c",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 2",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x151BFbed168a404cCF951B5413b420b22eC90f98",
+        "payloadType": "str",
+        "x": 100,
+        "y": 2520,
+        "wires": [
+            [
+                "7c160195ba76db0e"
+            ]
+        ]
+    },
+    {
+        "id": "e0d4cd08a2348b72",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 3",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0",
+        "payloadType": "str",
+        "x": 100,
+        "y": 2560,
+        "wires": [
+            [
+                "7c160195ba76db0e"
+            ]
+        ]
+    },
+    {
+        "id": "2d4d2c4510bf5469",
+        "type": "function",
+        "z": "b40f6c26a336a306",
+        "name": "Add text to result",
+        "func": "msg.payload = \"TokenID: \" + msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 950,
+        "y": 2520,
+        "wires": [
+            [
+                "b5297288fce04774"
+            ]
+        ]
+    },
+    {
+        "id": "150022f0f3d977c7",
+        "type": "function",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "func": "msg.payload = \"Amount of NFT(s): \" + msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 2160,
+        "wires": [
+            [
+                "122be179b3938f26"
+            ]
+        ]
+    },
+    {
+        "id": "b51f27fea2f6df38",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "TokenID \"5\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "5",
+        "payloadType": "str",
+        "x": 110,
+        "y": 2420,
+        "wires": [
+            [
+                "3317396027d83a32"
+            ]
+        ]
+    },
+    {
+        "id": "c30e6f4b0008586a",
+        "type": "function",
+        "z": "b40f6c26a336a306",
+        "name": "Enumerate Account Nr.",
+        "func": "if (msg.payload == \"0x520528DC344442b79223b4927Db1314af84f68c3\") {\n    msg.payload = \"Account 1\"\n} else if (msg.payload == \"0x151BFbed168a404cCF951B5413b420b22eC90f98\") {\n    msg.payload = \"Account 2\"\n} else if (msg.payload == \"0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0\") {\n    msg.payload = \"Account 3\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1800,
+        "wires": [
+            [
+                "6aa15b1d7c23b45c"
+            ]
+        ]
+    },
+    {
+        "id": "02a8b43f6ba5479d",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "transferFrom() (Caller: Acc 1)",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "transferFrom",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 460,
+        "y": 720,
+        "wires": [
+            [],
+            [
+                "54132c49da366dad"
+            ]
+        ]
+    },
+    {
+        "id": "69b8b00357c0cdcd",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "From Account 1 to Account 2",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x520528DC344442b79223b4927Db1314af84f68c3\",\"0x151BFbed168a404cCF951B5413b420b22eC90f98\",1]",
+        "payloadType": "json",
+        "x": 160,
+        "y": 700,
+        "wires": [
+            [
+                "02a8b43f6ba5479d"
+            ]
+        ]
+    },
+    {
+        "id": "d3d568a4e8c991c2",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "From Account 1 to Account 3",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x520528DC344442b79223b4927Db1314af84f68c3\",\"0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0\",1]",
+        "payloadType": "json",
+        "x": 160,
+        "y": 740,
+        "wires": [
+            [
+                "02a8b43f6ba5479d"
+            ]
+        ]
+    },
+    {
+        "id": "b9b774370c6b8f08",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "From Account 2 to Account 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x151BFbed168a404cCF951B5413b420b22eC90f98\",\"0x520528DC344442b79223b4927Db1314af84f68c3\",1]",
+        "payloadType": "json",
+        "x": 160,
+        "y": 800,
+        "wires": [
+            [
+                "39fe9ba78eb060e4"
+            ]
+        ]
+    },
+    {
+        "id": "b5555af4ffd4485c",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "From Account 2 to Account 3",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x151BFbed168a404cCF951B5413b420b22eC90f98\",\"0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0\",1]",
+        "payloadType": "json",
+        "x": 160,
+        "y": 840,
+        "wires": [
+            [
+                "39fe9ba78eb060e4"
+            ]
+        ]
+    },
+    {
+        "id": "ea6fca8084f06277",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "From Account 3 to Account 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0\",\"0x520528DC344442b79223b4927Db1314af84f68c3\",1]",
+        "payloadType": "json",
+        "x": 160,
+        "y": 900,
+        "wires": [
+            [
+                "1f9b6c48cc2759ab"
+            ]
+        ]
+    },
+    {
+        "id": "1e6f08b3105ce310",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "From Account 3 to Account 2",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0\",\"0x151BFbed168a404cCF951B5413b420b22eC90f98\",1]",
+        "payloadType": "json",
+        "x": 160,
+        "y": 940,
+        "wires": [
+            [
+                "1f9b6c48cc2759ab"
+            ]
+        ]
+    },
+    {
+        "id": "39fe9ba78eb060e4",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "transferFrom() (Caller: Acc 2)",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "transferFrom",
+        "senderAccount": "b4c8a7de7f10183b",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 460,
+        "y": 820,
+        "wires": [
+            [],
+            [
+                "888d86cb8a91b42b"
+            ]
+        ]
+    },
+    {
+        "id": "1f9b6c48cc2759ab",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "transferFrom() (Caller: Acc 3)",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "transferFrom",
+        "senderAccount": "344348712eadfa87",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 460,
+        "y": 920,
+        "wires": [
+            [],
+            [
+                "b057cda44dc74c6d"
+            ]
+        ]
+    },
+    {
+        "id": "4b1ac4c6c1f23628",
+        "type": "comment",
+        "z": "b40f6c26a336a306",
+        "name": "Info",
+        "info": "This flow provides a playground to test all implemented ERC-721 Functions. Make sure to mint some NFTs before trying the functions!",
+        "x": 350,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "c8ed3e3a75518dd6",
+        "type": "comment",
+        "z": "b40f6c26a336a306",
+        "name": "approvals",
+        "info": "",
+        "x": 80,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "54f685313d35c967",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "getApproved()",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "getApproved",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 320,
+        "y": 1120,
+        "wires": [
+            [],
+            [
+                "d99cf777f8289a87"
+            ]
+        ]
+    },
+    {
+        "id": "cb6d09b9f32af9f2",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "TokenID \"1\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "1",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1080,
+        "wires": [
+            [
+                "54f685313d35c967"
+            ]
+        ]
+    },
+    {
+        "id": "ac76f413c9a929fd",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "TokenID \"2\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "2",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1120,
+        "wires": [
+            [
+                "54f685313d35c967"
+            ]
+        ]
+    },
+    {
+        "id": "334cce8f701c4e46",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "TokenID \"3\"",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "3",
+        "payloadType": "str",
+        "x": 110,
+        "y": 1160,
+        "wires": [
+            [
+                "54f685313d35c967"
+            ]
+        ]
+    },
+    {
+        "id": "64ed0ba0fd427074",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "approve() (Caller: Account 1)",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "approve",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 440,
+        "y": 1260,
+        "wires": [
+            [],
+            [
+                "a7b087e2333b283f"
+            ]
+        ]
+    },
+    {
+        "id": "cd6e3b971c32a302",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 2, TokenID 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x151BFbed168a404cCF951B5413b420b22eC90f98\",1]",
+        "payloadType": "json",
+        "x": 140,
+        "y": 1260,
+        "wires": [
+            [
+                "64ed0ba0fd427074"
+            ]
+        ]
+    },
+    {
+        "id": "b1f330a59a90d347",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 3, TokenID 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0\",1]",
+        "payloadType": "json",
+        "x": 140,
+        "y": 1300,
+        "wires": [
+            [
+                "64ed0ba0fd427074"
+            ]
+        ]
+    },
+    {
+        "id": "10eded4b240174a0",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 810,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "d99cf777f8289a87",
+        "type": "function",
+        "z": "b40f6c26a336a306",
+        "name": "Enumerate Account Nr.",
+        "func": "if (msg.payload == \"0x520528DC344442b79223b4927Db1314af84f68c3\") {\n    msg.payload = \"Account 1\"\n} else if (msg.payload == \"0x151BFbed168a404cCF951B5413b420b22eC90f98\") {\n    msg.payload = \"Account 2\"\n} else if (msg.payload == \"0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0\") {\n    msg.payload = \"Account 3\"\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 570,
+        "y": 1120,
+        "wires": [
+            [
+                "10eded4b240174a0"
+            ]
+        ]
+    },
+    {
+        "id": "68c09d93c250b9c6",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Zero Address, TokenID 1",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x0000000000000000000000000000000000000000\",1]",
+        "payloadType": "json",
+        "x": 150,
+        "y": 1220,
+        "wires": [
+            [
+                "64ed0ba0fd427074"
+            ]
+        ]
+    },
+    {
+        "id": "a9da3574962adbbd",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "isApprovedForAll()",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "isApprovedForAll",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 510,
+        "y": 1380,
+        "wires": [
+            [],
+            [
+                "65e787bb0483b790"
+            ]
+        ]
+    },
+    {
+        "id": "52cbe1ab39754126",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Is Account 2 Approved for All of Account 1?",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x520528dc344442b79223b4927db1314af84f68c3\",\"0x151BFbed168a404cCF951B5413b420b22eC90f98\"]",
+        "payloadType": "json",
+        "x": 200,
+        "y": 1360,
+        "wires": [
+            [
+                "a9da3574962adbbd"
+            ]
+        ]
+    },
+    {
+        "id": "65e787bb0483b790",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 1380,
+        "wires": []
+    },
+    {
+        "id": "6bb565424b9cc0b6",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Is Account 3 Approved for All of Account 1?",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x520528dc344442b79223b4927db1314af84f68c3\",\"0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0\"]",
+        "payloadType": "json",
+        "x": 200,
+        "y": 1400,
+        "wires": [
+            [
+                "a9da3574962adbbd"
+            ]
+        ]
+    },
+    {
+        "id": "7b66f770fc85d300",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "setApprovalForAll() (Caller: Account 1)",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "setApprovalForAll",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": false,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 450,
+        "y": 1520,
+        "wires": [
+            [],
+            [
+                "68b284d91ed22073"
+            ]
+        ]
+    },
+    {
+        "id": "c5d5f6c3e81f4edd",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 2, Approve",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x151BFbed168a404cCF951B5413b420b22eC90f98\",true]",
+        "payloadType": "json",
+        "x": 130,
+        "y": 1460,
+        "wires": [
+            [
+                "7b66f770fc85d300"
+            ]
+        ]
+    },
+    {
+        "id": "e24b66d3a0820e52",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 2, Remove",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x151BFbed168a404cCF951B5413b420b22eC90f98\",false]",
+        "payloadType": "json",
+        "x": 130,
+        "y": 1500,
+        "wires": [
+            [
+                "7b66f770fc85d300"
+            ]
+        ]
+    },
+    {
+        "id": "03fb7b150b6cbae2",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 3, Approve",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0\",true]",
+        "payloadType": "json",
+        "x": 130,
+        "y": 1540,
+        "wires": [
+            [
+                "7b66f770fc85d300"
+            ]
+        ]
+    },
+    {
+        "id": "7b32810890f7f169",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "Account 3, Remove",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "[\"0x47C42AeCe2878Bbaec7115830c71008B6b85aDf0\",false]",
+        "payloadType": "json",
+        "x": 130,
+        "y": 1580,
+        "wires": [
+            [
+                "7b66f770fc85d300"
+            ]
+        ]
+    },
+    {
+        "id": "e09da2bc67362bfb",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 2060,
+        "wires": [
+            [
+                "39d4237a49009f74"
+            ]
+        ]
+    },
+    {
+        "id": "39d4237a49009f74",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "totalSupply()",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "totalSupply",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 290,
+        "y": 2060,
+        "wires": [
+            [],
+            [
+                "9fd1d5307d2302bc"
+            ]
+        ]
+    },
+    {
+        "id": "9fd1d5307d2302bc",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 2060,
+        "wires": []
+    },
+    {
+        "id": "918c31351c6ecafc",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1110,
+        "y": 2620,
+        "wires": []
+    },
+    {
+        "id": "30d76c3e5b812552",
+        "type": "function",
+        "z": "b40f6c26a336a306",
+        "name": "Loop",
+        "func": "msgList = []\nvar account = flow.get(\"account\")\nfor (var i = 0; i < msg.payload; i++)\n    msgList.push({payload:i})\nreturn [msgList];",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 470,
+        "y": 2620,
+        "wires": [
+            [
+                "2830ecd0915bed57"
+            ]
+        ]
+    },
+    {
+        "id": "2830ecd0915bed57",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "tokenByIndex()",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "tokenByIndex",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 660,
+        "y": 2620,
+        "wires": [
+            [],
+            [
+                "3728e0d53c870316"
+            ]
+        ]
+    },
+    {
+        "id": "3728e0d53c870316",
+        "type": "function",
+        "z": "b40f6c26a336a306",
+        "name": "Add text to result",
+        "func": "msg.payload = \"TokenID: \" + msg.payload\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 890,
+        "y": 2620,
+        "wires": [
+            [
+                "918c31351c6ecafc"
+            ]
+        ]
+    },
+    {
+        "id": "547db5008825cbad",
+        "type": "inject",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 2620,
+        "wires": [
+            [
+                "78d007594f326ad0"
+            ]
+        ]
+    },
+    {
+        "id": "78d007594f326ad0",
+        "type": "contract-call",
+        "z": "b40f6c26a336a306",
+        "name": "totalSupply()",
+        "smartContract": "3065fb7c2045d54e",
+        "contractFunction": "totalSupply",
+        "senderAccount": "105ec7d2a328a2f6",
+        "readonlyFunction": true,
+        "weiTransfer": "",
+        "onlyEstimateGas": false,
+        "useEstimatedGasLimit": true,
+        "gasLimit": "",
+        "usePreviousBlocksGasPrice": true,
+        "gasPrice": "",
+        "fetchFullTransaction": false,
+        "x": 290,
+        "y": 2620,
+        "wires": [
+            [],
+            [
+                "30d76c3e5b812552"
+            ]
+        ]
+    },
+    {
+        "id": "cf0490308dfc0104",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "summary",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "7d928bf47a082b5d",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "summary",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "6e634444a7809116",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "summary",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "b8c4abf48a8da8ba",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "summary",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "54132c49da366dad",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "summary",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "888d86cb8a91b42b",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "summary",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "b057cda44dc74c6d",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "summary",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 920,
+        "wires": []
+    },
+    {
+        "id": "a7b087e2333b283f",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "summary",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "68b284d91ed22073",
+        "type": "debug",
+        "z": "b40f6c26a336a306",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "summary",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "e602fa260dd27259",
+        "type": "comment",
+        "z": "b40f6c26a336a306",
+        "name": "Smart Contract: Test Token",
+        "info": "",
+        "x": 550,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "79797e260e410368",
+        "type": "comment",
+        "z": "32f4dda2c398bdd3",
+        "name": "ganache mnemonic (click me)",
+        "info": "siren suit gift pill insect build expand decade valid roof blind museum",
+        "x": 140,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "3c9d3eaa3bccd8eb",
+        "type": "comment",
+        "z": "32f4dda2c398bdd3",
+        "name": "Event Reader",
+        "info": "",
+        "x": 90,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "b0a1aa70dd9e1450",
+        "type": "event-reader",
+        "z": "32f4dda2c398bdd3",
+        "name": "Transfer Event",
+        "smartContract": "3065fb7c2045d54e",
+        "contractEvent": "Transfer",
+        "fromBlock": "0",
+        "toBlock": "latest",
+        "filter": "",
+        "x": 320,
+        "y": 160,
+        "wires": [
+            [
+                "15f8114360e80a0a"
+            ]
+        ]
+    },
+    {
+        "id": "24f2a1e6fa386bdc",
+        "type": "inject",
+        "z": "32f4dda2c398bdd3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 160,
+        "wires": [
+            [
+                "b0a1aa70dd9e1450"
+            ]
+        ]
+    },
+    {
+        "id": "15f8114360e80a0a",
+        "type": "debug",
+        "z": "32f4dda2c398bdd3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "718a809b9edd34f7",
+        "type": "event-reader",
+        "z": "32f4dda2c398bdd3",
+        "name": "Approval Event",
+        "smartContract": "3065fb7c2045d54e",
+        "contractEvent": "Approval",
+        "fromBlock": "0",
+        "toBlock": "latest",
+        "filter": "",
+        "x": 320,
+        "y": 220,
+        "wires": [
+            [
+                "26ec6458e907f684"
+            ]
+        ]
+    },
+    {
+        "id": "c28fa9f4e9e4c08f",
+        "type": "inject",
+        "z": "32f4dda2c398bdd3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 220,
+        "wires": [
+            [
+                "718a809b9edd34f7"
+            ]
+        ]
+    },
+    {
+        "id": "26ec6458e907f684",
+        "type": "debug",
+        "z": "32f4dda2c398bdd3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c480c48aee8aa4dc",
+        "type": "event-reader",
+        "z": "32f4dda2c398bdd3",
+        "name": "ApprovalForAll  Event",
+        "smartContract": "3065fb7c2045d54e",
+        "contractEvent": "ApprovalForAll",
+        "fromBlock": "0",
+        "toBlock": "latest",
+        "filter": "",
+        "x": 340,
+        "y": 280,
+        "wires": [
+            [
+                "8400354903cd89a6"
+            ]
+        ]
+    },
+    {
+        "id": "3dbfedc5154fd43f",
+        "type": "inject",
+        "z": "32f4dda2c398bdd3",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 100,
+        "y": 280,
+        "wires": [
+            [
+                "c480c48aee8aa4dc"
+            ]
+        ]
+    },
+    {
+        "id": "8400354903cd89a6",
+        "type": "debug",
+        "z": "32f4dda2c398bdd3",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "a7b52c0fe3795420",
+        "type": "comment",
+        "z": "32f4dda2c398bdd3",
+        "name": "Event Listener (activate debug consoles first)",
+        "info": "",
+        "x": 190,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "86f0a7fa82ca7095",
+        "type": "event-listener",
+        "z": "32f4dda2c398bdd3",
+        "name": "Transfer Event",
+        "smartContract": "3065fb7c2045d54e",
+        "contractEvent": "Transfer",
+        "filter": "",
+        "x": 100,
+        "y": 420,
+        "wires": [
+            [
+                "fb1ab7db36ecd784"
+            ]
+        ]
+    },
+    {
+        "id": "fb1ab7db36ecd784",
+        "type": "debug",
+        "z": "32f4dda2c398bdd3",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "81a5b777637f2e59",
+        "type": "event-listener",
+        "z": "32f4dda2c398bdd3",
+        "name": "Approval Event",
+        "smartContract": "3065fb7c2045d54e",
+        "contractEvent": "Approval",
+        "filter": "",
+        "x": 100,
+        "y": 480,
+        "wires": [
+            [
+                "ba340851fc26eefb"
+            ]
+        ]
+    },
+    {
+        "id": "a9d37d937606b2ba",
+        "type": "event-listener",
+        "z": "32f4dda2c398bdd3",
+        "name": "ApprovalForAll Event",
+        "smartContract": "3065fb7c2045d54e",
+        "contractEvent": "ApprovalForAll",
+        "filter": "",
+        "x": 120,
+        "y": 540,
+        "wires": [
+            [
+                "7b7478cd80904a24"
+            ]
+        ]
+    },
+    {
+        "id": "ba340851fc26eefb",
+        "type": "debug",
+        "z": "32f4dda2c398bdd3",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "7b7478cd80904a24",
+        "type": "debug",
+        "z": "32f4dda2c398bdd3",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 350,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "54af5e2847e4d409",
+        "type": "comment",
+        "z": "32f4dda2c398bdd3",
+        "name": "Info",
+        "info": "This flow provides a playground to test all implemented ERC-721 Events. Make sure to mint some NFTs before trying the Reader and Listener nodes!",
+        "x": 350,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "60be4c435ea79548",
+        "type": "comment",
+        "z": "32f4dda2c398bdd3",
+        "name": "Smart Contract: Test Token",
+        "info": "",
+        "x": 550,
+        "y": 40,
+        "wires": []
+    }
+]

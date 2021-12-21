@@ -1,0 +1,25 @@
+{
+  "name": "wipro-nft",
+  "version": "1.0.0",
+  "description": "A npm package that provides example flows for node-red as well as the needed erc-721 smart contract in order to mint NFTs.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+  	"nft",
+  	"node-red",
+  	"smart contracts",
+  	"erc-721"
+  ],
+  "author": [
+  	"Thanujan Thangavel",
+  	"Lukas Mettler"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.4.0",
+    "@pinata/sdk": "^1.1.23"
+  },
+  "repository": "github:rel-thanu/WIPRO-NFT"
+}
